@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :timeline
+  has_many :posts, through: :timeline
   attr_accessible :access_token, :access_token_secret, :name, :provider, :salt, :uid
 
   validates :access_token, :access_token_secret, :name, :provider, :salt, :uid, presence: true
