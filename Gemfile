@@ -29,12 +29,20 @@ gem 'twitter'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'jasmine-rails'
   gem 'factory_girl_rails'
-  gem 'pry-rails'
-  gem 'pry-doc'
+  gem 'spork-rails'
+  gem 'guard'
+  gem 'terminal-notifier-guard'
+  gem 'rb-fsevent', require: false
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
 end
 group :development do
   gem 'thin'
+  gem 'pry-rails'
+  gem 'pry-doc'
 end
 
 # To use ActiveModel has_secure_password
