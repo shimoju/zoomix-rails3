@@ -1,5 +1,9 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe "welcome/index.html.erb" do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "に、auth/twitterへのリンクが表示されていること" do
+    render
+    expect(rendered).to include("auth/twitter")
+  end
 end

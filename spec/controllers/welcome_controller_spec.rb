@@ -1,12 +1,11 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe WelcomeController do
-
-  describe "GET 'index'" do
-    it "returns http success" do
+  describe "の'index'をGETしたとき" do
+    it "は、http successが返ってくること" do
       get 'index'
-      response.should be_success
+      expect(response).to be_success
     end
   end
-
 end
