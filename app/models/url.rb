@@ -3,4 +3,12 @@ class Url < ActiveRecord::Base
   attr_accessible :original_url, :url
 
   validates :original_url, :url, presence: true
+  validates :original_url, format: {
+    with: %r(^https?://),
+    message: "is not valid URL"
+  }
+  validates :url, format: {
+    with: %r(^https?://),
+    message: "is not valid URL"
+  }
 end

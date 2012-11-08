@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
   has_many :timeline
   has_many :posts, through: :timeline
-  attr_accessible :access_token, :access_token_secret, :name, :provider, :salt, :uid
+  # attr_accessible :access_token, :access_token_secret, :name, :provider, :salt, :uid
 
   validates :access_token, :access_token_secret, :name, :provider, :salt, :uid, presence: true
   validates :uid, uniqueness: { scope: :provider }
+  validates_associated :timeline
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
