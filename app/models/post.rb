@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :urls, dependent: :destroy
   # attr_accessible :name, :posted_at, :postid, :source, :text, :uid
 
-  validates :name, :posted_at, :postid, :source, :text, :uid, presence: true
+  validates :name, :posted_at, :postid, :source, :text, :uid, :urls, presence: true
   validates :postid, uniqueness: { scope: :source }
   validates_associated :urls
 
@@ -32,7 +32,7 @@ class Post < ActiveRecord::Base
       post.name = name
       post.text = text
       urls.each do |url|
-        post.urls.build(url: url.expanded_url, original_url: url.expanded_url)
+        post.urls.new(url: url.expanded_url, original_url: url.expanded_url)
       end
     end
   end
