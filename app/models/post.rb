@@ -32,7 +32,7 @@ class Post < ActiveRecord::Base
       post.name = name
       post.text = text
       urls.each do |url|
-        post.urls.new(url: url.expanded_url, original_url: url.expanded_url)
+        post.urls.new(url: Hugeurl.get(url.expanded_url).to_s, original_url: url.expanded_url)
       end
     end
   end

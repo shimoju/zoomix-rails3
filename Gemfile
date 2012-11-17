@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'rails_config'
 gem 'omniauth-twitter'
 gem 'twitter'
+gem 'hugeurl'
 
 group :development, :test do
   gem 'rspec-rails'
