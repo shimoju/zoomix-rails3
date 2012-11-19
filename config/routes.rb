@@ -1,4 +1,6 @@
 Zoomix::Application.routes.draw do
+  get 'play' => 'player#index'
+
   controller :sessions do
     get 'auth/:provider/callback' => :callback
     delete 'logout' => :destroy
