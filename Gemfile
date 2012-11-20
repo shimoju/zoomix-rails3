@@ -21,7 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'normalize-rails'
 
 gem 'rails_config'
 gem 'omniauth-twitter'
