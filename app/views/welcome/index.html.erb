@@ -3,3 +3,18 @@
 <ul>
   <li><%= link_to 'Twitterでログイン','auth/twitter' %></li>
 </ul>
+
+<h2>Orbit test</h2>
+<div id="featured">
+  <img src="holder.js/1200x250/text:Slide_1" alt="slide image">
+  <img src="holder.js/1200x250/text:Slide_2" alt="slide image">
+  <img src="holder.js/1200x250/text:Slide_3" alt="slide image">
+</div>
+
+<script>
+  $(window).load(function() {
+    $('#featured').orbit({
+      timer: false,
+    });
+  });
+</script>
