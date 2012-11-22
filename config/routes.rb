@@ -1,4 +1,5 @@
 Zoomix::Application.routes.draw do
+  get 'about' => 'welcome#about'
   get 'play' => 'player#index'
 
   controller :sessions do

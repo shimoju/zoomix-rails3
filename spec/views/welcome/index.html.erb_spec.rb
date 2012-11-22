@@ -2,8 +2,5 @@
 require 'spec_helper'
 
 describe "welcome/index.html.erb" do
-  it "に、auth/twitterへのリンクが表示されていること" do
-    render
-    expect(rendered).to include("auth/twitter")
-  end
+  pending "add some examples to (or delete) #{__FILE__}"
 end
