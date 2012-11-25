@@ -8,9 +8,28 @@
 </head>
 <body>
   <div id="wrapper">
+    <header>
+      <h1>
+        <%= link_to image_tag('logo.png', alt: 'Zoomix', width: 240), root_path %>Always by your side.
+      </h1>
+      <nav>
+        <ul>
+        <% if current_user %>
+          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'ログイン','/auth/twitter' %></li>
+        <% end %>
+        </ul>
+      </nav>
+    </header>
+    <div id="main">
 
 <%= yield %>
 
+    </div>
+    <footer>
+      <p>Copyright © 2012 dbsh5th Web Apllication Team [<%= link_to 'About Us', about_path %>]</p>
+    </footer>
   </div>
   <% if notice %>
   <p id="notice"><%= notice %></p>
