@@ -1,8 +1,8 @@
 secret_token: <%= ENV['SECRET_TOKEN'] %>
 twitter:
-  key: <%= ENV['TWITTER_KEY'] %>
-  secret: <%= ENV['TWITTER_SECRET'] %>
+  key: <%= ENV['TWITTER_CONSUMER_KEY'] %>
+  secret: <%= ENV['TWITTER_CONSUMER_SECRET'] %>
 crypt:
   salt_length: <%= ENV['SALT_LENGTH'] %>
   stretching: <%= ENV['STRETCHING'] %>
-  password: <%= ENV['PASSWORD']  %>
+  password: <%= ENV['CRYPT_PASSWORD']  %>
