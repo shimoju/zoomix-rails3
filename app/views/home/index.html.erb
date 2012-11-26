@@ -1,1 +1,21 @@
 <p><%= link_to 'Play!', play_path, class: 'play' %></p>
+
+<h2>最近の動画</h2>
+<table>
+  <tr>
+    <th>投稿者</th>
+    <th>ツイート内容</th>
+    <th>URL</th>
+  </tr>
+<% @user_posts.each do |post| %>
+  <tr>
+    <td>@<%= post.name %></td>
+    <td><%= post.text %></td>
+    <td>
+    <% post.urls.each do |url| %>
+      <%= link_to url.url, url.url %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
