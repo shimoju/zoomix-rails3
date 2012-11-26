@@ -5,4 +5,4 @@ twitter:
 crypt:
   salt_length: <%= ENV['SALT_LENGTH'] %>
   stretching: <%= ENV['STRETCHING'] %>
-  password: <%= ENV['CRYPT_PASSWORD']  %>
+  password: <%= ENV['CRYPT_PASSWORD'] %>
