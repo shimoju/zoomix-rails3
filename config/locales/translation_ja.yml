@@ -1,0 +1,37 @@
+ja:
+  activerecord:
+    models:
+      post: post  #g
+      timeline: timeline  #g
+      url: url  #g
+      user: user  #g
+
+    attributes:
+      post:
+        name: name  #g
+        posted_at: posted_at  #g
+        postid: postid  #g
+        source: source  #g
+        text: text  #g
+        timeline: timeline  #g
+        uid: uid  #g
+        urls: urls  #g
+
+      timeline:
+        post: :activerecord.models.post  #g
+        user: :activerecord.models.user  #g
+
+      url:
+        original_url: original_url  #g
+        post: :activerecord.models.post  #g
+        url: url  #g
+
+      user:
+        access_token: access_token  #g
+        access_token_secret: access_token_secret  #g
+        name: name  #g
+        posts: posts  #g
+        provider: provider  #g
+        salt: salt  #g
+        timeline: timeline  #g
+        uid: uid  #g

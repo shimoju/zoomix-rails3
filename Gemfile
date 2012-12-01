@@ -49,6 +49,7 @@ group :development do
   gem 'thin'
   gem 'pry-rails'
   gem 'pry-doc'
+  gem 'i18n_generators'
 end
 
 # To use ActiveModel has_secure_password

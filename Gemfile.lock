@@ -51,6 +51,8 @@ GEM
       compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
     diff-lcs (1.1.3)
+    domain_name (0.5.4)
+      unf (~> 0.0.3)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -83,6 +85,9 @@ GEM
     hike (1.2.1)
     hugeurl (0.0.7)
     i18n (0.6.1)
+    i18n_generators (1.2.1)
+      mechanize
+      rails (>= 3.0.0)
     jasmine (1.3.0)
       jasmine-core (>= 1.3.0)
       rack (~> 1.0)
@@ -113,12 +118,24 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mechanize (2.5.1)
+      domain_name (~> 0.5, >= 0.5.1)
+      mime-types (~> 1.17, >= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.4)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (~> 0.0, >= 0.0.9)
     method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.3.7)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
+    net-http-digest_auth (1.2.1)
+    net-http-persistent (2.8)
+    nokogiri (1.5.5)
     normalize-rails (2.0.1)
+    ntlm-http (0.1.1)
     oauth (0.4.7)
     omniauth (1.1.1)
       hashie (~> 1.2)
@@ -224,6 +241,10 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    unf (0.0.5)
+      unf_ext
+    unf_ext (0.0.5)
+    webrobots (0.0.13)
     websocket (1.0.4)
     whenever (0.8.0)
       activesupport (>= 2.3.4)
@@ -242,6 +263,7 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   hugeurl
+  i18n_generators
   jasmine-rails
   jquery-rails
   mysql2
