@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20121106120005) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "posts", ["postid", "source"], :name => "index_posts_on_postid_and_source", :unique => true
+
   create_table "timeline", :force => true do |t|
     t.integer  "user_id"
     t.integer  "post_id"
@@ -31,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20121106120005) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "timeline", ["post_id", "user_id"], :name => "index_timeline_on_post_id_and_user_id", :unique => true
   add_index "timeline", ["post_id"], :name => "index_timeline_on_post_id"
   add_index "timeline", ["user_id"], :name => "index_timeline_on_user_id"
 
@@ -54,5 +57,7 @@ ActiveRecord::Schema.define(:version => 20121106120005) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  add_index "users", ["uid", "provider"], :name => "index_users_on_uid_and_provider", :unique => true
 
 end
