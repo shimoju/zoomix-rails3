@@ -10,8 +10,11 @@
 
 <%= yield %>
 
-  <% if notice %>
+<% if notice %>
   <p id="notice"><%= notice %></p>
-  <% end %>
+<% end %>
+<% if alert %>
+  <p id="alert"><%= alert %></p>
+<% end %>
 </body>
 </html>
