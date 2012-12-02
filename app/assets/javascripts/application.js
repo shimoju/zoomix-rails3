@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation/jquery.foundation.orbit
-//= require_tree .
+//= require welcome
+//= require home
+//= require player
