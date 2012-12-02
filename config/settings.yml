@@ -1,8 +1,8 @@
-secret_token: <%= ENV['SECRET_TOKEN'] %>
+secret_token: random_chars_for_signed_cookie
 twitter:
-  key: <%= ENV['TWITTER_CONSUMER_KEY'] %>
-  secret: <%= ENV['TWITTER_CONSUMER_SECRET'] %>
+  key: your_twitter_consumer_key
+  secret: your_twitter_consumer_secret
 crypt:
-  salt_length: <%= ENV['SALT_LENGTH'] %>
-  stretching: <%= ENV['STRETCHING'] %>
-  password: <%= ENV['CRYPT_PASSWORD'] %>
+  salt_length: 32
+  stretching: 10000
+  password: crypt_password
