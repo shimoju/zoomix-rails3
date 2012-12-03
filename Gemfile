@@ -28,6 +28,8 @@ gem 'normalize-rails'
 
 gem 'rails_config'
 gem 'omniauth-twitter'
+gem 'devise'
+gem 'devise-i18n'
 gem 'twitter'
 gem 'hugeurl'
 
