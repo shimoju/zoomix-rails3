@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   validates :uid, uniqueness: { scope: :provider }
   validates_associated :timeline
 
+  devise :omniauthable, :trackable
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider

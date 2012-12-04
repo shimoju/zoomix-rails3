@@ -14,10 +14,10 @@
       </h1>
       <nav>
         <ul>
-        <% if current_user %>
-          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to 'ログイン','/auth/twitter' %></li>
+          <li><%= link_to 'ログイン', user_omniauth_authorize_path(:twitter) %></li>
         <% end %>
         </ul>
       </nav>

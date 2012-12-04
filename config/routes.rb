@@ -1,11 +1,11 @@
 Zoomix::Application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    delete '/logout' => 'devise/sessions#destroy', as: :destroy_user_session
+  end
+
   get 'about' => 'welcome#about'
   get 'play' => 'player#index'
-
-  controller :sessions do
-    get 'auth/:provider/callback' => :callback
-    delete 'logout' => :destroy
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,7 +56,7 @@ Zoomix::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root to: 'home#index', constraints: -> request { request.session[:user_id].present? }, as: 'home'
+  root to: 'home#index', constraints: -> request { request.env['warden'].authenticated?(:user) }, as: :home
   root to: 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
