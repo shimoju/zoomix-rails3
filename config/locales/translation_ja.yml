@@ -31,16 +31,17 @@ ja:
       user:
         access_token: access_token  #g
         access_token_secret: access_token_secret  #g
+        current_sign_in_at: current_sign_in_at  #g
+        current_sign_in_ip: current_sign_in_ip  #g
+        encrypted_access_token: encrypted_access_token  #g
+        encrypted_access_token_secret: encrypted_access_token_secret  #g
+        last_sign_in_at: last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
         name: name  #g
         posts: posts  #g
         provider: provider  #g
-        salt: salt  #g
         timeline: timeline  #g
         uid: uid  #g
-        current_sign_in_at: current_sign_in_at  #g
-        current_sign_in_ip: current_sign_in_ip  #g
-        last_sign_in_at: last_sign_in_at  #g
-        last_sign_in_ip: last_sign_in_ip  #g
 
       active_admin/comment:
         author: :activerecord.models.author  #g

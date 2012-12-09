@@ -28,6 +28,7 @@ gem 'normalize-rails'
 
 gem 'rails_config'
 gem 'omniauth-twitter'
+gem 'attr_encrypted'
 gem 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'

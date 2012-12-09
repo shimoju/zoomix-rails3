@@ -3,6 +3,4 @@ twitter:
   key: your_twitter_consumer_key
   secret: your_twitter_consumer_secret
 crypt:
-  salt_length: 32
-  stretching: 10000
   password: crypt_password

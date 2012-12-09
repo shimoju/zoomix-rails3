@@ -5,8 +5,7 @@ FactoryGirl.define do
     provider "MyString"
     uid "MyString"
     name "MyString"
-    access_token ""
-    access_token_secret ""
-    salt ""
+    access_token "MyString"
+    access_token_secret "MyString"
   end
 end

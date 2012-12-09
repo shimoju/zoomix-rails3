@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   has_many :timeline, dependent: :destroy
   has_many :posts, through: :timeline
-  # attr_accessible :access_token, :access_token_secret, :name, :provider, :salt, :uid
+  # attr_accessible :access_token, :access_token_secret, :name, :provider, :uid
+  attr_encrypted :access_token, key: Settings.crypt.password
+  attr_encrypted :access_token_secret, key: Settings.crypt.password
 
-  validates :access_token, :access_token_secret, :name, :provider, :salt, :uid, presence: true
+  validates :encrypted_access_token, :encrypted_access_token_secret, :name, :provider, :uid, presence: true
   validates :uid, uniqueness: { scope: :provider }
   validates_associated :timeline
 
@@ -15,9 +17,8 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       # Twitter: nickname->screen_name, name->name
       user.name = auth.info.nickname
-      user.salt = Crypt.generate_salt
-      user.access_token = Crypt.encrypt(auth.credentials.token, user.salt)
-      user.access_token_secret = Crypt.encrypt(auth.credentials.secret, user.salt)
+      user.access_token = auth.credentials.token
+      user.access_token_secret = auth.credentials.secret
     end
   end
 end
