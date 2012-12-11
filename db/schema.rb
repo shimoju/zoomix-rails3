@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20121208112238) do
     t.datetime "updated_at",                                   :null => false
     t.string   "provider"
     t.string   "uid"
+    t.string   "username"
     t.string   "name"
     t.string   "access_token"
     t.string   "encrypted_access_token"
