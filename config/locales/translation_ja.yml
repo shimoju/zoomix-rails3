@@ -1,47 +1,74 @@
 ja:
   activerecord:
     models:
-      post: post  #g
-      timeline: timeline  #g
-      url: url  #g
-      user: user  #g
-      active_admin/comment: active_admin/comment  #g
-      admin_user: admin_user  #g
+      post: 投稿
+      timeline: タイムライン
+      url: URL
+      user: ユーザー
+      active_admin/comment: 管理者コメント
+      admin_user: 管理者
 
     attributes:
+      common:
+        email: メールアドレス
+        name: 名前
+        uid: ユーザーID
+        username: ユーザー名
+        created_at: 作成日
+        updated_at: 更新日
+        devise:
+          current_sign_in_at: ログインした日
+          current_sign_in_ip: ログインしたIPアドレス
+          last_sign_in_at: その前にログインした日
+          last_sign_in_ip: その前にログインしたIPアドレス
+          remember_created_at: ログインを記憶した日
+          reset_password_sent_at: パスワードリセットを送信した日
+          reset_password_token: パスワードリセットのトークン
+          sign_in_count: ログインした回数
+
       post:
-        name: name  #g
-        posted_at: posted_at  #g
-        postid: postid  #g
-        source: source  #g
-        text: text  #g
+        name: :activerecord.attributes.common.username
+        posted_at: 投稿日
+        postid: 投稿ID
+        source: 投稿したサイト
+        text: 本文
         timeline: timeline  #g
-        uid: uid  #g
+        uid: :activerecord.attributes.common.uid
         urls: urls  #g
+        created_at: :activerecord.attributes.common.created_at
+        updated_at: :activerecord.attributes.common.updated_at
 
       timeline:
         post: :activerecord.models.post  #g
         user: :activerecord.models.user  #g
+        created_at: :activerecord.attributes.common.created_at
+        updated_at: :activerecord.attributes.common.updated_at
 
       url:
-        original_url: original_url  #g
+        original_url: 元のURL
         post: :activerecord.models.post  #g
-        url: url  #g
+        url: 展開したURL
+        created_at: :activerecord.attributes.common.created_at
+        updated_at: :activerecord.attributes.common.updated_at
 
       user:
-        access_token: access_token  #g
-        access_token_secret: access_token_secret  #g
-        current_sign_in_at: current_sign_in_at  #g
-        current_sign_in_ip: current_sign_in_ip  #g
-        encrypted_access_token: encrypted_access_token  #g
-        encrypted_access_token_secret: encrypted_access_token_secret  #g
-        last_sign_in_at: last_sign_in_at  #g
-        last_sign_in_ip: last_sign_in_ip  #g
-        name: name  #g
+        access_token: アクセストークン
+        access_token_secret: アクセストークン・シークレット
+        current_sign_in_at: :activerecord.attributes.common.devise.current_sign_in_at
+        current_sign_in_ip: :activerecord.attributes.common.devise.current_sign_in_ip
+        encrypted_access_token: 暗号化されたアクセストークン
+        encrypted_access_token_secret: 暗号化されたアクセストークン・シークレット
+        last_sign_in_at: :activerecord.attributes.common.devise.last_sign_in_at
+        last_sign_in_ip: :activerecord.attributes.common.devise.last_sign_in_ip
+        name: :activerecord.attributes.common.name
         posts: posts  #g
-        provider: provider  #g
+        provider: 認証サイト
+        sign_in_count: :activerecord.attributes.common.devise.sign_in_count
         timeline: timeline  #g
-        uid: uid  #g
+        uid: :activerecord.attributes.common.uid
+        username: :activerecord.attributes.common.username
+        created_at: :activerecord.attributes.common.created_at
+        updated_at: :activerecord.attributes.common.updated_at
 
       active_admin/comment:
         author: :activerecord.models.author  #g
@@ -50,14 +77,19 @@ ja:
         namespace: namespace  #g
         resource: :activerecord.models.resource  #g
         resource_type: resource_type  #g
+        created_at: :activerecord.attributes.common.created_at
+        updated_at: :activerecord.attributes.common.updated_at
 
       admin_user:
-        current_sign_in_at: current_sign_in_at  #g
-        current_sign_in_ip: current_sign_in_ip  #g
-        email: email  #g
-        encrypted_password: encrypted_password  #g
-        last_sign_in_at: last_sign_in_at  #g
-        last_sign_in_ip: last_sign_in_ip  #g
-        remember_created_at: remember_created_at  #g
-        reset_password_sent_at: reset_password_sent_at  #g
-        reset_password_token: reset_password_token  #g
+        current_sign_in_at: :activerecord.attributes.common.devise.current_sign_in_at
+        current_sign_in_ip: :activerecord.attributes.common.devise.current_sign_in_ip
+        email: :activerecord.attributes.common.email
+        encrypted_password: 暗号化されたパスワード
+        last_sign_in_at: :activerecord.attributes.common.devise.last_sign_in_at
+        last_sign_in_ip: :activerecord.attributes.common.devise.last_sign_in_ip
+        remember_created_at: :activerecord.attributes.common.devise.remember_created_at
+        reset_password_sent_at: :activerecord.attributes.common.devise.reset_password_sent_at
+        reset_password_token: :activerecord.attributes.common.devise.reset_password_token
+        sign_in_count: :activerecord.attributes.common.devise.sign_in_count
+        created_at: :activerecord.attributes.common.created_at
+        updated_at: :activerecord.attributes.common.updated_at
