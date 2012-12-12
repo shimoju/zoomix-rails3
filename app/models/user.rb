@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
       user.username = auth[:info][:nickname]
       user.access_token = auth[:credentials][:token]
       user.access_token_secret = auth[:credentials][:secret]
-      user.save
-      user
+      user.save if user.changed?
+      return user
     end
   end
 end
