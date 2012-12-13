@@ -48,6 +48,7 @@ group :development, :test do
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-bundler'
+  gem 'guard-livereload'
 end
 group :development do
   gem 'thin'
