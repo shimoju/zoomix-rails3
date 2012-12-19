@@ -35,6 +35,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'twitter'
 gem 'hugeurl'
+gem 'addressable', require: 'addressable/uri'
 
 gem 'whenever', require: false
 
