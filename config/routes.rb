@@ -8,7 +8,7 @@ Zoomix::Application.routes.draw do
   end
 
   get 'about' => 'welcome#about'
-  get 'play' => 'player#index'
+  get 'play' => 'player#play'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
