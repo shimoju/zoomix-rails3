@@ -13,13 +13,39 @@ class Url < ActiveRecord::Base
     message: "is not valid URL"
   }
 
-  private
-  def ensure_not_referenced_by_post
-    if post.nil?
-      return true
-    else
-      errors.add(:base, 'Post still exists')
-      return false
-    end
+  def video_id
+    Addressable::URI.parse(self.url).query_values['v']
   end
+
+  def to_embed(options={})
+    options = {
+      ssl: false,
+      privacy_enhanced: false,
+      query: {autoplay: 1, rel: 0}
+    }.deep_merge(options)
+
+    url = Addressable::URI.parse(self.url)
+    video_id = url.query_values['v']
+
+    scheme = options[:ssl] ? 'https' : 'http'
+    host = options[:privacy_enhanced] ? 'www.youtube-nocookie.com' : 'www.youtube.com'
+    path = "/embed/#{video_id}"
+    query = options[:query].to_query
+    return Addressable::URI.new(
+      scheme: scheme,
+      host: host,
+      path: path,
+      query: query
+    )
+  end
+
+  private
+    def ensure_not_referenced_by_post
+      if post.nil?
+        return true
+      else
+        errors.add(:base, 'Post still exists')
+        return false
+      end
+    end
 end
