@@ -34,6 +34,7 @@ gem 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'
 gem 'twitter'
+gem 'twitter-text'
 gem 'hugeurl'
 gem 'addressable', require: 'addressable/uri'
 
