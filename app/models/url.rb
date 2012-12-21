@@ -21,7 +21,7 @@ class Url < ActiveRecord::Base
     options = {
       ssl: false,
       privacy_enhanced: false,
-      query: {autoplay: 1, rel: 0}
+      query: {autoplay: 1, rel: 0, wmode: 'transparent'}
     }.deep_merge(options)
 
     url = Addressable::URI.parse(self.url)
