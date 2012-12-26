@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :post do
     uid "MyString"
+    username "MyString"
     name "MyString"
     text "MyString"
     posted_at "2012-11-06 20:59:30"

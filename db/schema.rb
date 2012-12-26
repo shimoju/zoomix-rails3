@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20121208112238) do
 
   create_table "posts", :force => true do |t|
     t.string   "uid"
+    t.string   "username"
     t.string   "name"
     t.string   "text"
     t.datetime "posted_at"

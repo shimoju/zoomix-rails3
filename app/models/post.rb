@@ -1,9 +1,9 @@
 class Post < ActiveRecord::Base
   has_many :timeline, dependent: :destroy
   has_many :urls, dependent: :delete_all
-  # attr_accessible :name, :posted_at, :postid, :source, :text, :uid
+  # attr_accessible :name, :posted_at, :postid, :source, :text, :uid, :username
 
-  validates :name, :posted_at, :postid, :source, :text, :uid, :urls, presence: true
+  validates :name, :posted_at, :postid, :source, :text, :uid, :urls, :username, presence: true
   validates :postid, uniqueness: { scope: :source }
   validates_associated :urls
 
@@ -13,14 +13,16 @@ class Post < ActiveRecord::Base
       postid = tweet.retweeted_status.id.to_s
       posted_at = tweet.retweeted_status.created_at
       uid = tweet.retweeted_status.user.id.to_s
-      name = tweet.retweeted_status.user.screen_name
+      username = tweet.retweeted_status.user.screen_name
+      name = tweet.retweeted_status.user.name
       text = tweet.retweeted_status.text
       urls = tweet.retweeted_status.urls
     else
       postid = tweet.id.to_s
       posted_at = tweet.created_at
       uid = tweet.user.id.to_s
-      name = tweet.user.screen_name
+      username = tweet.user.screen_name
+      name = tweet.user.name
       text = tweet.text
       urls = tweet.urls
     end
@@ -29,6 +31,7 @@ class Post < ActiveRecord::Base
       post.postid = postid
       post.posted_at = posted_at
       post.uid = uid
+      post.username = username
       post.name = name
       post.text = text
       urls.each do |url|

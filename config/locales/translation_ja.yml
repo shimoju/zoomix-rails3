@@ -27,13 +27,14 @@ ja:
           sign_in_count: ログインした回数
 
       post:
-        name: :activerecord.attributes.common.username
+        name: :activerecord.attributes.common.name
         posted_at: 投稿日
         postid: 投稿ID
         source: 投稿したサイト
         text: 本文
         timeline: timeline  #g
         uid: :activerecord.attributes.common.uid
+        username: :activerecord.attributes.common.username
         urls: urls  #g
         created_at: :activerecord.attributes.common.created_at
         updated_at: :activerecord.attributes.common.updated_at
