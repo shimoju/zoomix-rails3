@@ -7,6 +7,9 @@ class Post < ActiveRecord::Base
   validates :postid, uniqueness: { scope: :source }
   validates_associated :urls
 
+  scope :latest, order('posted_at DESC').limit(1)
+  scope :oldest, order('posted_at').limit(1)
+
   def self.from_twitter(tweet)
     source = 'twitter'
     if tweet.retweet?
