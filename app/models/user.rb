@@ -10,6 +10,13 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :trackable
 
+  def create_twitter_client
+    return Twitter::Client.new(
+      oauth_token: self.access_token,
+      oauth_token_secret: self.access_token_secret
+    )
+  end
+
   def self.from_omniauth(auth)
     user = find_by_provider_and_uid(auth[:provider], auth[:uid])
     unless user
