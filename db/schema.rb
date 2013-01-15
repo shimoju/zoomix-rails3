@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208112238) do
+ActiveRecord::Schema.define(:version => 20130115100724) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(:version => 20121208112238) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "contents", :force => true do |t|
+    t.string   "url"
+    t.string   "original_url"
+    t.string   "contentid"
+    t.integer  "post_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "contents", ["post_id"], :name => "index_contents_on_post_id"
+
   create_table "posts", :force => true do |t|
     t.string   "uid"
     t.string   "username"
@@ -70,16 +81,6 @@ ActiveRecord::Schema.define(:version => 20121208112238) do
   add_index "timeline", ["post_id", "user_id"], :name => "index_timeline_on_post_id_and_user_id", :unique => true
   add_index "timeline", ["post_id"], :name => "index_timeline_on_post_id"
   add_index "timeline", ["user_id"], :name => "index_timeline_on_user_id"
-
-  create_table "urls", :force => true do |t|
-    t.string   "url"
-    t.string   "original_url"
-    t.integer  "post_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "urls", ["post_id"], :name => "index_urls_on_post_id"
 
   create_table "users", :force => true do |t|
     t.integer  "sign_in_count",                 :default => 0

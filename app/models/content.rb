@@ -1,9 +1,9 @@
-class Url < ActiveRecord::Base
+class Content < ActiveRecord::Base
   belongs_to :post
-  # attr_accessible :original_url, :url
+  # attr_accessible :contentid, :original_url, :url
   before_destroy :ensure_not_referenced_by_post
 
-  validates :original_url, :url, presence: true
+  validates :contentid, :original_url, :url, presence: true
   validates :original_url, format: {
     with: %r(^https?://),
     message: "is not valid URL"
