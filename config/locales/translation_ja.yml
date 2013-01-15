@@ -1,9 +1,9 @@
 ja:
   activerecord:
     models:
+      content: コンテンツ
       post: 投稿
       timeline: タイムライン
-      url: URL
       user: ユーザー
       active_admin/comment: 管理者コメント
       admin_user: 管理者
@@ -26,7 +26,16 @@ ja:
           reset_password_token: パスワードリセットのトークン
           sign_in_count: ログインした回数
 
+      content:
+        contentid: コンテンツID
+        original_url: 元のURL
+        post: :activerecord.models.post  #g
+        url: 展開したURL
+        created_at: :activerecord.attributes.common.created_at
+        updated_at: :activerecord.attributes.common.updated_at
+
       post:
+        contents: contents  #g
         name: :activerecord.attributes.common.name
         posted_at: 投稿日
         postid: 投稿ID
@@ -35,20 +44,12 @@ ja:
         timeline: timeline  #g
         uid: :activerecord.attributes.common.uid
         username: :activerecord.attributes.common.username
-        urls: urls  #g
         created_at: :activerecord.attributes.common.created_at
         updated_at: :activerecord.attributes.common.updated_at
 
       timeline:
         post: :activerecord.models.post  #g
         user: :activerecord.models.user  #g
-        created_at: :activerecord.attributes.common.created_at
-        updated_at: :activerecord.attributes.common.updated_at
-
-      url:
-        original_url: 元のURL
-        post: :activerecord.models.post  #g
-        url: 展開したURL
         created_at: :activerecord.attributes.common.created_at
         updated_at: :activerecord.attributes.common.updated_at
 
