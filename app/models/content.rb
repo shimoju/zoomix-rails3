@@ -1,7 +1,6 @@
 class Content < ActiveRecord::Base
   belongs_to :post
   # attr_accessible :contentid, :original_url, :url
-  before_destroy :ensure_not_referenced_by_post
 
   validates :contentid, :original_url, :url, presence: true
   validates :original_url, format: {
@@ -9,12 +8,16 @@ class Content < ActiveRecord::Base
     message: "is not valid URL"
   }
   validates :url, format: {
-    with: %r(^https?://www.youtube.com/watch),
+    with: %r(^https?://www.youtube.com/watch\?v=),
     message: "is not valid URL"
   }
 
-  def video_id
-    Addressable::URI.parse(self.url).query_values['v']
+  def gen_content_id
+    begin
+      return Addressable::URI.parse(self.url).query_values['v']
+    rescue NoMethodError => e
+      return nil
+    end
   end
 
   def to_embed(options={})
@@ -38,14 +41,4 @@ class Content < ActiveRecord::Base
       query: query
     )
   end
-
-  private
-    def ensure_not_referenced_by_post
-      if post.nil?
-        return true
-      else
-        errors.add(:base, 'Post still exists')
-        return false
-      end
-    end
 end

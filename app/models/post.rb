@@ -1,11 +1,11 @@
 class Post < ActiveRecord::Base
   has_many :timeline, dependent: :destroy
-  has_many :urls, dependent: :delete_all
+  has_many :contents, dependent: :destroy
   # attr_accessible :name, :posted_at, :postid, :source, :text, :uid, :username
 
-  validates :name, :posted_at, :postid, :source, :text, :uid, :urls, :username, presence: true
+  validates :contents, :name, :posted_at, :postid, :source, :text, :uid, :username, presence: true
   validates :postid, uniqueness: { scope: :source }
-  validates_associated :urls
+  validates_associated :contents
 
   scope :latest, order('posted_at DESC').limit(1)
   scope :oldest, order('posted_at').limit(1)
@@ -38,13 +38,13 @@ class Post < ActiveRecord::Base
       post.name = name
       post.text = text
       urls.each do |url|
-        post_url = post.urls.new
-        post_url.original_url = url.expanded_url
+        post_content = post.contents.new
+        post_content.original_url = url.expanded_url
         begin
-          post_url.url = Hugeurl.get(url.expanded_url).to_s
+          post_content.url = Hugeurl.get(post_content.original_url).to_s
+          post_content.contentid = post_content.gen_content_id
         rescue => e
-          logger.error "Error Hugeurl <#{p e}>\nURL: #{url.expanded_url}"
-          post_url.url = url.expanded_url
+          logger.error "Error <#{p e}>\nURL: #{url.expanded_url}"
         end
       end
     end

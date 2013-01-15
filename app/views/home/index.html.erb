@@ -9,11 +9,11 @@
   </tr>
 <% @user_posts.each do |post| %>
   <tr>
-    <td>@<%= post.name %></td>
+    <td>@<%= post.username %></td>
     <td><%= post.text %></td>
     <td>
-    <% post.urls.each do |url| %>
-      <%= link_to url.url, url.url %>
+    <% post.contents.each do |content| %>
+      <%= link_to content.url, content.url %>
     <% end %>
     </td>
   </tr>

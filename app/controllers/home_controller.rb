@@ -3,6 +3,6 @@ class HomeController < ApplicationController
 
   def index
     user = current_user
-    @user_posts = user.posts.order('created_at DESC').limit(20).includes :urls
+    @user_posts = user.posts.order('posted_at DESC').limit(20).includes :contents
   end
 end
