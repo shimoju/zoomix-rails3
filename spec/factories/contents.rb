@@ -4,7 +4,8 @@ FactoryGirl.define do
   factory :content do
     url "MyString"
     original_url "MyString"
-    contentid "MyString"
+    cid "MyString"
+    source "MyString"
     post nil
   end
 end

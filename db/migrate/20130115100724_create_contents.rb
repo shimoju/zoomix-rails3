@@ -3,7 +3,8 @@ class CreateContents < ActiveRecord::Migration
     create_table :contents do |t|
       t.string :url
       t.string :original_url
-      t.string :contentid
+      t.string :cid
+      t.string :source
       t.references :post
 
       t.timestamps

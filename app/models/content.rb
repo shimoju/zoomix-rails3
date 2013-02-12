@@ -1,8 +1,8 @@
 class Content < ActiveRecord::Base
   belongs_to :post
-  # attr_accessible :contentid, :original_url, :url
+  # attr_accessible :cid, :original_url, :source, :url
 
-  validates :contentid, :original_url, :url, presence: true
+  validates :cid, :original_url, :source, :url, presence: true
   validates :original_url, format: {
     with: %r(^https?://),
     message: "is not valid URL"
@@ -12,7 +12,7 @@ class Content < ActiveRecord::Base
     message: "is not valid URL"
   }
 
-  def gen_content_id
+  def gen_cid
     begin
       return Addressable::URI.parse(self.url).query_values['v']
     rescue NoMethodError => e

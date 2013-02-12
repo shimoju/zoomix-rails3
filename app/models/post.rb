@@ -39,10 +39,11 @@ class Post < ActiveRecord::Base
       post.text = text
       urls.each do |url|
         post_content = post.contents.new
+        post_content.source = 'youtube'
         post_content.original_url = url.expanded_url
         begin
           post_content.url = Hugeurl.get(post_content.original_url).to_s
-          post_content.contentid = post_content.gen_content_id
+          post_content.cid = post_content.gen_cid
         rescue => e
           logger.error "Error <#{p e}>\nURL: #{url.expanded_url}"
         end

@@ -27,9 +27,10 @@ ja:
           sign_in_count: ログインした回数
 
       content:
-        contentid: コンテンツID
+        cid: コンテンツID
         original_url: 元のURL
         post: :activerecord.models.post  #g
+        source: サイト
         url: 展開したURL
         created_at: :activerecord.attributes.common.created_at
         updated_at: :activerecord.attributes.common.updated_at
