@@ -1,12 +1,20 @@
 doctype html
-html id=controller.controller_name
+html
   head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     title= @title ? "Zoomix / #{@title}" : 'Zoomix'
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
+    meta name="description" content="Zoomix : Always by your side."
     = csrf_meta_tags
-  body
-    #wrapper
+
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = stylesheet_link_tag "application", :media => "all"
+
+  body class=controller.controller_name
+    .container
       header
         h1= link_to image_tag('logo.png', alt: 'Zoomix', width: 240), root_path
         p Always by your side.
@@ -16,7 +24,8 @@ html id=controller.controller_name
               li= link_to 'ログアウト', destroy_user_session_path, method: :delete
             - else
               li= link_to 'ログイン', user_omniauth_authorize_path(:twitter)
-      #main
+
+      .main
         = yield
 
       footer
@@ -26,3 +35,9 @@ html id=controller.controller_name
       p#notice= notice
     - if alert
       p#alert= alert
+
+    /!
+      Javascripts
+      \==================================================
+    / Placed at the end of the document so the pages load faster
+    = javascript_include_tag "application"
