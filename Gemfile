@@ -5,7 +5,7 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', group: :development
+gem 'sqlite3', group: [:development, :test]
 gem 'mysql2', group: :production
 
 
@@ -16,7 +16,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
 
@@ -40,21 +40,26 @@ gem 'addressable', require: 'addressable/uri'
 
 gem 'whenever', require: false
 
+
 group :development, :test do
+  gem 'thin'
   gem 'rspec-rails'
-  gem 'jasmine-rails'
   gem 'factory_girl_rails'
+  gem 'jasmine-rails'
   gem 'spork-rails'
+end
+
+group :development do
   gem 'guard'
-  gem 'terminal-notifier-guard'
+  gem 'rb-inotify', require: false
   gem 'rb-fsevent', require: false
-  gem 'guard-spork'
-  gem 'guard-rspec'
+  gem 'rb-fchange', require: false
+  gem 'terminal-notifier-guard'
   gem 'guard-bundler'
   gem 'guard-livereload'
-end
-group :development do
-  gem 'thin'
+  gem 'guard-pow'
+  gem 'guard-rspec'
+  gem 'guard-spork'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'i18n_generators'
