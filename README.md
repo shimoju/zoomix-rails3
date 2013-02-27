@@ -29,8 +29,6 @@ twitter:
   key: your_twitter_consumer_key
   secret: your_twitter_consumer_secret
 crypt:
-  salt_length: 32
-  stretching: 10000
   password: your_password
 ```
 
@@ -47,11 +45,11 @@ Open `http://localhost:3000/`
 Run `rake db:test:prepare` or `rake spec`
 
 ```shell
-guard
+bundle exec guard
 ```
 
 
 License
 -------
 
-Copyright © 2012 dbsh5th Web Apllication Team
+© 2012 dbsh5th Web Apllication Team
