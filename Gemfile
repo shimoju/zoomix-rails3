@@ -25,7 +25,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'normalize-rails'
+gem 'slim-rails'
+gem 'bootstrap-sass'
 
 gem 'rails_config'
 gem 'omniauth-twitter'
@@ -63,6 +64,7 @@ group :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'i18n_generators'
+  gem 'twitter-bootstrap-rails'
 end
 
 # To use ActiveModel has_secure_password
