@@ -1,0 +1,28 @@
+doctype html
+html id=controller.controller_name
+  head
+    title= @title ? "Zoomix / #{@title}" : 'Zoomix'
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    #wrapper
+      header
+        h1= link_to image_tag('logo.png', alt: 'Zoomix', width: 240), root_path
+        p Always by your side.
+        nav
+          ul
+            - if user_signed_in?
+              li= link_to 'ログアウト', destroy_user_session_path, method: :delete
+            - else
+              li= link_to 'ログイン', user_omniauth_authorize_path(:twitter)
+      #main
+        = yield
+
+      footer
+        p © 2012 dbsh5th Web Apllication Team [#{link_to 'About Us', about_path}]
+
+    - if notice
+      p#notice= notice
+    - if alert
+      p#alert= alert
