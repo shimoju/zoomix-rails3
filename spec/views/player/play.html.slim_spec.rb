@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "player/play.html.erb" do
+describe "player/play.html.slim" do
   pending "add some examples to (or delete) #{__FILE__}"
 end
