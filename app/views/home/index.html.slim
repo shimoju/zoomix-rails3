@@ -1,0 +1,15 @@
+p= link_to 'Play!', play_path, class: 'play'
+
+h2 最近の動画
+table
+  tr
+    th 投稿者
+    th ツイート内容
+    th URL
+  - @user_posts.each do |post|
+    tr
+      td= post.username
+      td= post.text
+      td
+        - post.contents.each do |content|
+          = link_to content.url, content.url
