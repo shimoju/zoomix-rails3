@@ -13,7 +13,8 @@ ul
   a.carousel-control.left href="#intro" data-slide="prev" &lsaquo;
   a.carousel-control.right href="#intro" data-slide="next" &rsaquo;
 
-javascript:
-  $('.carousel').carousel({
-    interval: false
-  })
+- content_for :after_javascripts do
+  javascript:
+    $('.carousel').carousel({
+      interval: false
+    })
